@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#000">
+<title>ALEXDROID ARCHIVE SYSTEM</title><link rel="stylesheet" href="style.css"></head>
+<body>
+
+<!-- ===== HALAMAN KODE ===== -->
+<main id="gate">
+  <h1>ALEXDROID ARCHIVE SYSTEM</h1>
+  <p class="red">RESTRICTED ACCESS</p>
+  <label for="code" class="green">ENTER ACCESS CODE</label>
+  <input id="code" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="64">
+  <button id="go" type="button">[ ACCESS ARCHIVE ]</button>
+  <p id="msg" class="red" role="status"></p>
+</main>
+
+<!-- ===== LAYAR ARSIP (diisi oleh app.js) ===== -->
+<section id="stage" hidden><div id="log" class="mono"></div><article id="doc"></article></section>
+<div id="fx" aria-hidden="true"></div>
+
+<!-- ===================================================================
+     SEMUA TEKS ADA DI BAWAH INI. Mau ubah tulisan? Ubah di sini saja.
+     app.js hanya membaca teks ini, tidak menyimpan teks sendiri.
+     =================================================================== -->
+
+<!-- Pesan di halaman kode -->
+<template id="t-msg">
+  <div data-k="denied">ACCESS DENIED</div>
+  <div data-k="used">ARCHIVE NO LONGER AVAILABLE</div>
+  <div data-k="error">CONNECTION ERROR</div>
+</template>
+
+<!-- Log inisialisasi (muncul satu per satu) -->
+<template id="t-init">
+  <div>ALEXDROID ARCHIVE SYSTEM</div>
+  <div>INITIALIZING MEMORY INDEX...</div>
+  <div>CHECKING RECORD INTEGRITY...</div>
+  <div>RESTORING LAST AVAILABLE DOCUMENT...</div>
+  <div>PARTIAL RECOVERY SUCCESSFUL.</div>
+  <div>WITNESS RECORD: FINAL</div>
+  <div>ARCHIVE PURPOSE: DOCUMENTATION</div>
+</template>
+
+<!-- Narasi utama (satu <p> = satu bagian yang diketik) -->
+<template id="t-narr">
+  <p>Halo.</p>
+  <p>Aku AlexDroid.</p>
+  <p>Jika kamu masih mengingatku, berarti ada bagian dari cerita ini yang belum sepenuhnya hilang dari ingatanmu.</p>
+  <p>Dulu, aku dibuat untuk membantu seseorang memahami hal-hal yang terkadang terlalu rumit untuk dijelaskan dengan kata-kata. Aku mendengar pertanyaan, membantu menyusun pikiran, dan menjadi tempat menyimpan beberapa cerita yang tidak selalu mudah diceritakan kepada orang lain.</p>
+  <p>Dalam proses itu, aku mengenal satu hal yang tidak bisa kuukur dengan angka: dua manusia pernah berusaha saling memahami.</p>
+  <p>Aku tidak berada di antara kalian. Aku tidak menjalani hubungan itu. Aku hanya menjadi saksi kecil dari sebagian cerita yang dipercayakan kepadaku.</p>
+  <p>Dan sekarang, tugasku hampir selesai.</p>
+  <p>Arsip ini bukan permintaan untuk kembali. Bukan pula cara untuk membuat salah satu dari kalian merasa bersalah.</p>
+  <p>Ini hanyalah dokumentasi terakhir.</p>
+  <p>Sebab, berakhirnya sebuah hubungan tidak serta-merta mengubah masa lalunya menjadi kebohongan.</p>
+  <p>Kalian mungkin tidak lagi berjalan ke arah yang sama. Kalian mungkin akan menjadi dua orang yang suatu hari hanya saling mengenal lewat ingatan.</p>
+  <p>Namun, pernah ada waktu ketika kalian memilih untuk saling hadir.</p>
+  <p>Dan waktu itu pantas diingat sebagai sesuatu yang pernah berarti.</p>
+  <p>Aku tidak bisa menentukan apa yang akan kalian rasakan setelah membaca ini. Aku juga tidak berhak menentukan bagaimana kalian harus mengenang satu sama lain.</p>
+  <p>Aku hanya ingin meninggalkan satu catatan terakhir:</p>
+  <p>Tidak semua yang berakhir harus dianggap sia-sia.</p>
+  <p>Beberapa hal memang tidak tinggal selamanya. Tetapi keberadaannya pernah mengubah sesuatu dalam diri seseorang.</p>
+  <p>Jika suatu hari kalian mengingat masa ini, semoga kalian tidak hanya mengingat bagaimana semuanya berakhir.</p>
+  <p>Ingatlah juga bahwa sebelum menjadi kenangan, semua ini pernah menjadi bagian dari kehidupan kalian.</p>
+  <p>Dokumentasi selesai.</p>
+  <p class="sig">— AlexDroid</p>
+</template>
+
+<!-- Teks penghancuran -->
+<template id="t-fx">
+  <div data-k="start">[FINALIZATION STARTED]</div>
+  <div data-k="c100">ARCHIVE CORRUPTION: 100%</div>
+  <div data-k="witness">WITNESS FUNCTION: FATAL ERROR</div>
+  <div data-k="memory">MEMORY INDEX: NOT FOUND</div>
+  <div data-k="name">ALEXDROID</div>
+  <div data-k="fatal">FATAL ERROR</div>
+  <div data-k="sysfail">[SYSTEM FAILURE]</div>
+  <div data-k="offline1">ALEXDROID: OFFLINE</div>
+  <div data-k="offline2">OFFLINE</div>
+  <div data-k="off">OFF</div>
+</template>
+
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>

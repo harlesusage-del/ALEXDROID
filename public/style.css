@@ -1,0 +1,32 @@
+:root{--bg:#000;--tx:#d9d9d2;--gr:#3dff7a;--rd:#ff3b3b;--mono:ui-monospace,Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font-family:var(--sans);overflow:hidden}
+body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px);animation:grain 1s steps(4) infinite}
+@keyframes grain{50%{background-position:0 2px}}
+body.black *{visibility:hidden}body.black #tp,body.black #tp *{visibility:visible}body.black::after{display:none}
+.mono,h1,button,input,label,.big,.flog,.g{font-family:var(--mono)}
+.green{color:var(--gr)}.red{color:var(--rd)}
+#gate{height:100%;max-width:30rem;margin:0 auto;padding:1.5rem;display:flex;flex-direction:column;justify-content:center;gap:1rem}
+h1{font-size:clamp(1.1rem,5vw,1.6rem);letter-spacing:.08em;margin:0;text-shadow:2px 0 var(--rd),-2px 0 #28d7ff}
+#gate p{margin:0;min-height:1.2em}
+input{background:#000;color:var(--tx);border:1px solid #555;padding:.9rem;font-size:1rem;width:100%;border-radius:0}
+button{background:#000;color:var(--gr);border:1px solid var(--gr);padding:.9rem;font-size:1rem;cursor:pointer;border-radius:0}
+button:disabled{opacity:.4}:focus-visible{outline:2px solid var(--gr);outline-offset:2px}
+#stage{height:100%;max-width:42rem;margin:0 auto;padding:1.25rem;display:flex;flex-direction:column;transition:opacity 2.2s}
+#stage.dim{opacity:.12}
+#log{font-size:.85rem;color:var(--gr);line-height:1.6}#log.off{display:none}
+#doc{flex:1;overflow-y:auto;font-size:clamp(1.05rem,3.6vw,1.2rem);line-height:1.75;scrollbar-width:none;padding:.5rem 0 30vh}
+#doc p{margin:0 0 1.2em;color:var(--tx)}#doc .sig{color:var(--gr);font-family:var(--mono)}
+#fx{position:fixed;inset:0;overflow:hidden;z-index:40;pointer-events:none}
+.big{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(1.6rem,9vw,4.5rem);white-space:nowrap;text-shadow:3px 0 var(--rd),-3px 0 #28d7ff}
+.g{position:absolute;font-size:clamp(1.6rem,9vw,4.5rem);white-space:nowrap;text-shadow:3px 0 var(--rd),-3px 0 #28d7ff}
+.flog{position:absolute;inset:8% 6%;overflow:hidden;font-size:.95rem;line-height:1.5;color:var(--gr)}
+.flog .red,.flog.red{color:var(--rd)}.flog.tear{animation:tear .12s steps(2) infinite}
+@keyframes tear{50%{transform:translateX(3vw) skewX(-8deg)}}
+body.shake #fx,body.shake #stage{animation:sh .09s steps(2) infinite}
+@keyframes sh{0%{transform:translate(-2vw,1vh)}100%{transform:translate(2vw,-1vh)}}
+#tp{position:fixed;right:.5rem;bottom:.5rem;z-index:60;display:flex;flex-direction:column;gap:.3rem;font:11px var(--mono)}
+#tp button{padding:.4rem;font-size:11px}
+@media (prefers-reduced-motion:reduce){body::after{animation:none}body.shake #fx,body.shake #stage{animation:none}.flog.tear{animation:none}#stage{transition:none}}
